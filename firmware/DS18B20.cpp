@@ -1,5 +1,6 @@
 #include "DS18B20.h"
 
+byte nextAddr[8];
 
 DS18B20::DS18B20(uint16_t pin){
     ds = new OneWire(pin);
@@ -70,14 +71,19 @@ char* DS18B20::getChipName(){
     return szName;
 }
 
+byte DS18B20::setAddr(newAddr){
+nextAddr = newAddr;
+
+}
+
 float DS18B20::getTemperature(){
     ds->reset();
-    ds->select(addr);
+    ds->select(nextAddr);
     ds->write(0x44);        // start conversion, with parasite power on at the end
     delay(750);     // maybe 750ms is enough, maybe not
     // we might do a ds.depower() here, but the reset will take care of it.
     ds->reset();
-    ds->select(addr);
+    ds->select(nextAddr);
     ds->write(0xBE);         // Read Scratchpad
 
     for (int i = 0; i < 9; i++) {           // we need 9 bytes
