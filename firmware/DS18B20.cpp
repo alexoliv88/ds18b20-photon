@@ -71,7 +71,7 @@ char* DS18B20::getChipName(){
     return szName;
 }
 
-void DS18B20::setAddr(*newAddr){
+byte DS18B20::setAddr(*newAddr){
 nextAddr = newAddr;
 
 }
