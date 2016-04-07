@@ -71,8 +71,8 @@ char* DS18B20::getChipName(){
     return szName;
 }
 
-byte DS18B20::setAddr(*newAddr){
-nextAddr = newAddr;
+byte DS18B20::setAddr(){
+nextAddr = DS18B20.GetPublicValue();
 
 }
 

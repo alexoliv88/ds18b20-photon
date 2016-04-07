@@ -23,6 +23,8 @@ private:
     byte _readCRC;
     char szName[MAX_NAME];
 
+
+
 public:
     DS18B20(uint16_t pin);
     boolean search();
@@ -36,5 +38,20 @@ public:
     float getTemperature();
     float convertToFahrenheit(float celsius);
     bool crcCheck();
+    void SetMyValue(byte v[8]);
+    byte  GetPublicValue();
+    byte  myPublicValue;
+
 
 };
+
+void DS18B20::SetMyValue(byte v[8])
+{
+     myPublicValue = v;
+
+}
+
+byte  DS18B20::GetPublicValue()
+{
+     return myPublicValue;
+}
