@@ -32,7 +32,9 @@ public:
     void getROM(char szROM[]);
     byte getChipType();
     char* getChipName();
+    void setAddr(byte newAddr[8]);
     float getTemperature();
     float convertToFahrenheit(float celsius);
     bool crcCheck();
+
 };
