@@ -40,7 +40,7 @@ public:
     bool crcCheck();
     void SetMyValue(byte v[8]);
     byte  GetPublicValue();
-    byte  myPublicValue;
+    byte  myPublicValue[8];
 
 
 };
